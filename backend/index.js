@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: 'https://zaki-chat-app-xc5g.vercel.app',
   credentials: true,
 };
 app.use(cors(corsOptions));
@@ -28,7 +28,13 @@ app.use('/api/v1/user', userRoute);
 app.use('/api/v1/message', messageRoute);
 
 
+// const __dirname = path.resolve();
 
+// app.use(express.static(path.join(__dirname,"../frontend/build")));
+
+// app.get("*", (req,res)=>{
+//      res.sendFile(path.join(__dirname,"../frontend/build/index.html"));
+// })
 
 
 

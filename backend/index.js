@@ -19,9 +19,13 @@ app.use(cookieParser());
 
 const corsOptions = {
   origin: 'https://zaki-chat-app-xc5g.vercel.app',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 };
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Enable pre-flight for all routes
+
 
 // API routes
 app.use('/api/v1/user', userRoute);

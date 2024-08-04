@@ -15,29 +15,33 @@ const Signup = () => {
     password: "",
   })
 
-  const onSubmitHandler =  async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post(`${BASE_URL}/api/v1/user/login`, user, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        withCredentials: true,
-      })
-      // console.log(res)
-      dispatch(setAuthUser(res.data))
-      toast.success('Logged in successfully')
-      navigate('/')
-      
-    } catch (error) {
-      console.log(error)
-      toast.error(error.response.data.message)
-    }
-    setUser({
-      username: "",
-      password: "",
+  const onSubmitHandler = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await axios.post(`${BASE_URL}/api/v1/user/login`, user, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
     });
+    dispatch(setAuthUser(res.data));
+    toast.success('Logged in successfully');
+    navigate('/');
+  } catch (error) {
+    console.log(error);
+    if (error.response) {
+      toast.error(error.response.data.message);
+    } else {
+      toast.error('Server timeout. Please try again later.');
+    }
   }
+  setUser({
+    username: "",
+    password: "",
+  });
+};
+
+  
   
   
   return (

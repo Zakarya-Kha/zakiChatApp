@@ -10,7 +10,7 @@ import { persistStore } from "redux-persist";
 
 let persistor = persistStore(store);
 
-export const BASE_URL="http://localhost:8080"
+export const BASE_URL="https://zaki-chat-app.vercel.app"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

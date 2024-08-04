@@ -18,7 +18,7 @@ const Signup = () => {
   const onSubmitHandler =  async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`https://zaki-chat-app.vercel.app/api/v1/user/login`, user, {
+      const res = await axios.post(`${BASE_URL}/api/v1/user/login`, user, {
         headers: {
           'Content-Type': 'application/json',
         },

@@ -7,7 +7,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: ['https://zaki-chat-app-xc5g.vercel.app/'],
+    origin: ['https://zaki-chat-app-xc5g.vercel.app'],
     methods: ['GET', 'POST'],
   },
 });

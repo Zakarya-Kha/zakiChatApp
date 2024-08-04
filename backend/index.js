@@ -27,6 +27,13 @@ app.use(cors(corsOptions));
 app.options('*', cors(corsOptions)); // Enable pre-flight for all routes
 
 
+// Log requests for debugging
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url} - ${new Date().toISOString()}`);
+  next();
+});
+
+
 // API routes
 app.use('/api/v1/user', userRoute);
 app.use('/api/v1/message', messageRoute);
